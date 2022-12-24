@@ -1,9 +1,10 @@
 <template>
     <header>
         <h1>{{title}}</h1>
-        <Button v-show="homePage" :text="showAddTask ?  'Close' : 'Add Task'" 
-        :color="showAddTask ? 'red' : 'green'"
-         @btn-click="$emit('toggle-add-task')"/>
+        <Button v-show="homePage" text='Add Task' 
+        color='green'
+         @btn-click="$emit('toggle-add-task')">
+        <router-link to="/addtasks"></router-link></Button>
     </header>
 </template>
 

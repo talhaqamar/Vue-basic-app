@@ -20,6 +20,8 @@
     
         <input type="submit" text="bgfd" value="Save Task" class="btn btn-block" />
       </form>
+
+      <router-link to="/">Home</router-link>
 </template>
 <script>
 export default {
@@ -32,6 +34,20 @@ export default {
         }
     },
     methods : {
+      async addTask(task){
+      const res = await fetch('api/tasks', {
+        method: "POST",
+        headers: {
+          'Content-type': 'application/json',
+       
+        },
+        body: JSON.stringify(task)
+
+      })
+      const data = await res.json()
+
+      this.tasks= [...this.tasks, data]
+    },
         onSubmit(e){
             e.preventDefault();
             if(!this.text){
@@ -44,8 +60,8 @@ export default {
                 reminder: this.reminder
             }
             console.log(newTask)
-
-            this.$emit('add-task', newTask)    
+            this.addTask(newTask)
+           // this.$emit('add-task', newTask)    
             
             this.text = ''
             this.day = ''

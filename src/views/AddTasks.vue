@@ -66,6 +66,9 @@ export default {
             this.text = ''
             this.day = ''
             this.reminder = false
+
+             // Navigation automatically to home page
+            this.$router.back()
         }
     }
 }

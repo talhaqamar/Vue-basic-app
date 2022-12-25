@@ -2,6 +2,7 @@ import {createRouter,createWebHistory} from 'vue-router'
 import About from '../views/About'
 import Home from '../views/Home'
 import AddTasks from '../views/AddTasks'
+import EditTasks from '../views/EditTasks'
 
 const routes = [
     {
@@ -19,7 +20,11 @@ const routes = [
         name : 'AddTasks',
         component : AddTasks
     },
-    
+    {
+        path :'/editTasks/:id',
+        name : 'EditTasks',
+        component : EditTasks
+    }, 
 ]
 
 const router = createRouter(

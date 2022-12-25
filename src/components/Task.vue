@@ -4,12 +4,12 @@
             <i @click="$emit('delete-task',task.id)" class="fas fa-times"></i>
         </h3>
         <p>{{task.day}}</p>
+        <h4><router-link :to="'/editTasks/' + task.id">Edit</router-link></h4>
     </div>
 </template>
-
 <script>
 
-export default{
+export default {
    name : 'Task',
    props: {
     task : Object
